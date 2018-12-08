@@ -1,19 +1,27 @@
 import React, { Component } from 'react';
+import AgeComponent from "./components/Age";
+import UsersList from "./components/UsersList";
 
 class App extends Component {
   render() {
     const age = 10;
-    let ageTemplate = '';
+    let users = [
+      {id: 1, name: "bashir", age: 30},
+      {id: 2, name: "mohammed", age: 20},
+      {id: 3, name: "houssam", age: 25},
+    ];
 
-    if(age > 5){
-      ageTemplate = <h1>you are older than 5</h1>;
-    } else {
-      ageTemplate = <p>you are not older than 5</p>;
-    }
+    let guests = [
+      {id: 1, name: "tony", age: 5},
+      {id: 2, name: "ahmad", age: 8},
+    ];
 
     return (
       <div className="App">
-        {ageTemplate}
+        <AgeComponent age={age} />
+        <AgeComponent age={3} />
+        <UsersList users={users} />
+        <UsersList users={guests} />
       </div>
     );
   }
